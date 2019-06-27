@@ -1,6 +1,10 @@
 package com.millenial.stormy;
 
-public class CurrentWeather {
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+public class CurrentWeather {   // Made for beeing a Data Model.
 
     // Fields.
 
@@ -11,6 +15,7 @@ public class CurrentWeather {
     private double humidity;
     private double precipChance;
     private String summary;
+    private String timeZone;
 
     //Setters and getters.
 
@@ -71,10 +76,67 @@ public class CurrentWeather {
         this.summary = summary;
     }
 
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
     //Construstors.
 
 
     //Methods.
+
+    public String getFormattedTime(){
+        SimpleDateFormat formatter = new SimpleDateFormat("H:m");
+
+        formatter.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
+
+        Date dateTime = new Date(time*1000);
+        return formatter.format(dateTime);
+    }
+
+    public int getIconId(){
+        //clear-day, clear-night, rain, snow, sleet, wind, fog,
+        // cloudy, partly-cloudy-day, or partly-cloudy-night
+        int iconId = R.drawable.clear_day;
+
+        switch (icon) {
+            case "clear-day":
+                iconId = R.drawable.clear_day;
+                break;
+            case "clear-night":
+                iconId = R.drawable.clear_night;
+                break;
+            case "rain":
+                iconId = R.drawable.rain;
+                break;
+            case "snow":
+                iconId = R.drawable.snow;
+                break;
+            case "sleet":
+                iconId = R.drawable.sleet;
+                break;
+            case "wind":
+                iconId = R.drawable.wind;
+                break;
+            case "fog":
+                iconId = R.drawable.fog;
+                break;
+            case "cloudy":
+                iconId = R.drawable.cloudy;
+                break;
+            case "partly-cloudy-day":
+                iconId = R.drawable.partly_cloudy;
+                break;
+            case "partly-cloudy-night":
+                iconId = R.drawable.cloudy_night;
+                break;
+        }
+        return iconId;
+    }
 
 
 }
