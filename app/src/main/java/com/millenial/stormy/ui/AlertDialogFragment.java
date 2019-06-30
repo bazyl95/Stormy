@@ -1,10 +1,12 @@
-package com.millenial.stormy;
+package com.millenial.stormy.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import com.millenial.stormy.R;
 
 public class AlertDialogFragment extends DialogFragment {
     @Override

@@ -1,10 +1,12 @@
-package com.millenial.stormy;
+package com.millenial.stormy.weather;
+
+import com.millenial.stormy.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class CurrentWeather {   // Made for beeing a Data Model.
+public class Current {   // Made for beeing a Data Model.
 
     // Fields.
 
@@ -86,11 +88,11 @@ public class CurrentWeather {   // Made for beeing a Data Model.
 
     //Construstors.
 
-    public CurrentWeather() {
+    public Current() {
     }
 
-    public CurrentWeather(String locationLabel, String icon, long time, double temperature,
-                          double humidity, double precipChance, String summary, String timeZone) {
+    public Current(String locationLabel, String icon, long time, double temperature,
+                   double humidity, double precipChance, String summary, String timeZone) {
         this.locationLabel = locationLabel;
         this.icon = icon;
         this.time = time;
