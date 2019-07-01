@@ -6,4 +6,6 @@
     <string name="network_unavailable_message">Sorry network is unavailable.</string>
     <string name="dark_sky_message"><a href="https://darksky.net/poweredby">POWERED BY DARK SKY</a></string>
     <string name="title_activity_hourly_forecast">HourlyForecastActivity</string>
+    <string name="hourly_list_icon">Hourly list weather icon</string>
+    <string name="appbar_scrolling_view_behavior">Scrolls</string>
 </resources>

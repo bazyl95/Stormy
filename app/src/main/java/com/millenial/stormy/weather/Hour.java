@@ -1,6 +1,11 @@
 package com.millenial.stormy.weather;
 
-public class Hour {
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+public class Hour implements Serializable {
 
     private long time;
     private String summary;
@@ -8,8 +13,23 @@ public class Hour {
     private String icon;
     private String timeZone;
 
-    public long getTime() {
-        return time;
+    public Hour() {
+    }
+
+    public Hour(long time, String summary, double temperature, String icon, String timeZone) {
+        this.time = time;
+        this.summary = summary;
+        this.temperature = temperature;
+        this.icon = icon;
+        this.timeZone = timeZone;
+    }
+
+    public String getTime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        formatter.setTimeZone(TimeZone.getTimeZone(timeZone));
+
+        Date dateTime = new Date(time * 1000);
+        return formatter.format(dateTime);
     }
 
     public void setTime(long time) {
@@ -24,16 +44,16 @@ public class Hour {
         this.summary = summary;
     }
 
-    public double getTemperature() {
-        return temperature;
+    public int getTemperature() {
+        return (int)Math.round((temperature - 32) * 5 / 9);
     }
 
     public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public String getIcon() {
-        return icon;
+    public int getIcon() {
+        return Forecast.getIconId(icon);
     }
 
     public void setIcon(String icon) {
